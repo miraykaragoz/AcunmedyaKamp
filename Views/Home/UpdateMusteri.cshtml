@@ -1,0 +1,17 @@
+﻿@model TBLMusteri
+
+@{
+    ViewData["Title"] = "Müsteri Güncelle";
+}
+
+<div class="col-md-12">
+    <h5>Müşteri Güncelle</h5>
+    <form action="/Home/UpdateMusteri" method="post" autocomplete="off">
+        <input type="hidden" name="Id" value="@Model.Id">
+        <input type="text" class="form-control mb-2" placeholder="Müşteri Adı" name="MusteriAdi" value="@Model.MusteriAdi" required>
+        <input type="text" class="form-control mb-2" placeholder="Müşteri Soyadı" name="MusteriSoyadi" value="@Model.MusteriSoyadi" required>
+        <input type="email" class="form-control mb-2" placeholder="E-posta" name="Eposta" value="@Model.Eposta" required>
+        <input type="tel" class="form-control mb-2" placeholder="Telefon Numarası" name="Telefon" value="@Model.Telefon" required>
+        <button class="btn btn-primary w-100">Güncelle</button>
+    </form>
+</div>

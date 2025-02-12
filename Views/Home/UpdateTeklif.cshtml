@@ -1,0 +1,41 @@
+﻿@model UpdateTeklifViewModel
+
+@{
+	ViewData["Title"] = "Teklif Güncelle";
+}
+
+<div class="col-md-12">
+	<h5>Teklif Güncelle</h5>
+	<form action="/Home/UpdateTeklif" method="post" autocomplete="off">
+		<input type="hidden" name="Id" value="@Model.Teklifler.Id">
+		<input type="text" class="form-control mb-2" placeholder="Teklif Başlığı" name="TeklifBaslik" value="@Model.Teklifler.TeklifBaslik" required>
+		<select class="form-control mb-2" name="MusteriId">
+			@foreach (var musteri in Model.Musteriler)
+			{
+				@if (Model.Teklifler.MusteriId == musteri.Id)
+				{
+					<option value="@musteri.Id" selected>@musteri.MusteriAdi @musteri.MusteriSoyadi</option>
+				}
+				else
+				{
+					<option value="@musteri.Id">@musteri.MusteriAdi @musteri.MusteriSoyadi</option>
+				}
+			}
+		</select>
+		<input type="number" class="form-control mb-2" placeholder="Fiyat" name="Fiyat" value="@Model.Teklifler.Fiyat" required>
+		<select class="form-control mb-2" name="DurumId">
+			@foreach (var durum in Model.Durumlar)
+			{
+				@if (Model.Teklifler.DurumId == durum.Id)
+				{
+					<option value="@durum.Id" selected>@durum.DurumAdi</option>
+				}
+				else
+				{
+					<option value="@durum.Id">@durum.DurumAdi</option>
+				}
+			}
+		</select>
+		<button class="btn btn-primary w-100">Güncelle</button>
+	</form>
+</div>

@@ -1,0 +1,15 @@
+﻿@model TBLDurumlar
+
+@{
+    ViewData["Title"] = "Durum Güncelle";
+}
+
+<div class="col-md-12">
+    <h5>Durum Güncelle</h5>
+    <form action="/Home/UpdateDurum" method="post" autocomplete="off">
+        <input type="hidden" name="Id" value="@Model.Id">
+        <input type="text" class="form-control mb-2" placeholder="Durum" name="DurumAdi" value="@Model.DurumAdi" required>
+        <input type="number" class="form-control mb-2" placeholder="Sıra" name="DurumSirasi" value="@Model.DurumSirasi" required>
+        <button class="btn btn-primary w-100">Güncelle</button>
+    </form>
+</div>
